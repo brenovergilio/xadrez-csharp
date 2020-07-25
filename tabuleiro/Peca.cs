@@ -10,7 +10,7 @@ namespace tabuleiro
         public Peca(Posicao posicao, Tabuleiro tabuleiro, Cor cor)
         {
             Posicao = posicao;
-            Tab = tab;
+            Tab = tabuleiro;
             Cor = cor;
             QntMovimentos = 0;
         }
