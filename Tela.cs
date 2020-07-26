@@ -1,12 +1,48 @@
 using System;
 using tabuleiro;
 using xadrez;
+using System.Collections.Generic;
 
 namespace C__and_.Net
 {
     public class Tela
     {
-        public static void imprimirTabuleiro(Tabuleiro tab)
+
+        public static void ImprimirPartida(PartidaDeXadrez partida)
+        {
+            ImprimirTabuleiro(partida.Tab);
+            System.Console.WriteLine();
+            ImprimirPecasCapturadas(partida);
+            System.Console.WriteLine();
+            System.Console.WriteLine("Turno: " + partida.Turno);
+            System.Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+        }
+
+        public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            System.Console.WriteLine("Peças capturadas:");
+            System.Console.Write("Brancas: ");
+            ImprimirConjuntos(partida.Capturadas(Cor.Branca));
+            System.Console.WriteLine();
+            System.Console.Write("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            ConsoleColor = ConsoleColor.Yellow;
+            ImprimirConjuntos(partida.Capturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+            System.Console.WriteLine();
+        }
+
+        public static void ImprimirConjuntos(HashSet<Peca> hs)
+        {
+            System.Console.Write("[");
+            foreach(Peca x in hs)
+            {
+                System.Console.Write(x + " ");
+            }
+            System.Console.Write("]");
+        } 
+
+        public static void ImprimirTabuleiro(Tabuleiro tab)
         {
             for(int i=0;i<tab.Linhas;i++)
             {
@@ -20,7 +56,7 @@ namespace C__and_.Net
             System.Console.WriteLine("  a b c d e f g h");
         }
 
-        public static void imprimirTabuleiro(Tabuleiro tab, bool [,] posicoesPossiveis)
+        public static void ImprimirTabuleiro(Tabuleiro tab, bool [,] posicoesPossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
