@@ -193,7 +193,39 @@ namespace xadrez
         }
         public void ColocarPecas()
         {
+            ColocarNovaPeca('a',1,new Torre(Tab, cor.Branca));
+            ColocarNovaPeca('b',1,new Cavalo(Tab, cor.Branca));
+            ColocarNovaPeca('c',1,new Bispo(Tab, cor.Branca));
+            ColocarNovaPeca('d',1,new Dama(Tab, cor.Branca));
+            ColocarNovaPeca('e',1,new Rei(Tab, cor.Branca));
+            ColocarNovaPeca('f',1,new Bispo(Tab, cor.Branca));
+            ColocarNovaPeca('g',1,new Cavalo(Tab, cor.Branca));
+            ColocarNovaPeca('h',1,new Torre(Tab, cor.Branca));
+            ColocarNovaPeca('a',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('b',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('c',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('d',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('e',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('f',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('g',1,new Peao(Tab, cor.Branca));
+            ColocarNovaPeca('h',1,new Peao(Tab, cor.Branca));
 
+            ColocarNovaPeca('a',1,new Torre(Tab, cor.Preta));
+            ColocarNovaPeca('b',1,new Cavalo(Tab, cor.Preta));
+            ColocarNovaPeca('c',1,new Bispo(Tab, cor.Preta));
+            ColocarNovaPeca('d',1,new Dama(Tab, cor.Preta));
+            ColocarNovaPeca('e',1,new Rei(Tab, cor.Preta));
+            ColocarNovaPeca('f',1,new Bispo(Tab, cor.Preta));
+            ColocarNovaPeca('g',1,new Cavalo(Tab, cor.Preta));
+            ColocarNovaPeca('h',1,new Torre(Tab, cor.Preta));
+            ColocarNovaPeca('a',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('b',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('c',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('d',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('e',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('f',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('g',1,new Peao(Tab, cor.Preta));
+            ColocarNovaPeca('h',1,new Peao(Tab, cor.Preta));
         }
     }
 }
