@@ -13,13 +13,7 @@ namespace C__and_.Net
                 System.Console.Write(8-i+" ");
                 for(int j=0;j<tab.Colunas;j++)
                 {
-                    if(tab.PecaEspecifica(i,j) == null)
-                        System.Console.Write("- ");
-                    else
-                    {
-                        ImprimirPeca(PecaEspecifica(i,j));
-                        System.Console.Write(" ");
-                    }
+                    ImprimirPeca(i,j);
                 }
                 System.Console.WriteLine();
             }
@@ -37,15 +31,23 @@ namespace C__and_.Net
 
         public static void ImprimirPeca(Peca p)
         {
-            if(p.Cor == Cor.Branca)
-                System.Console.Write(p);
-            else
+            if(p == null)
             {
-                ConsoleColor aux = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(p);
-                Console.ForegroundColor = aux;
-            }    
+                 System.Console.Write("- ");
+            }
+            else{
+
+                if(p.Cor == Cor.Branca)
+                    System.Console.Write(p);
+                else
+                {
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(p);
+                    Console.ForegroundColor = aux;
+                }   
+                Console.Write(" ");
+            }     
         }
     }
 }
