@@ -49,7 +49,7 @@ namespace xadrez
             return aux;
         }
 
-        public bool EstaEmCheque(Cor cor)
+        public bool EstaEmXeque(Cor cor)
         {
             Peca R = Rei(cor);
 
@@ -67,6 +67,31 @@ namespace xadrez
             return false;
         }
 
+        public bool TesteXequeMate(Cor cor)
+        {
+            if(!EstaEmXeque(cor))
+                return false;
+
+            foreach(Peca x in EmJogo(cor))
+            {
+                bool [,] mat = x.MovimentosPossiveis();
+
+                for(int i=0;i<mat.Linha;i++)
+                {
+                    for(int j=0; j<mat.Coluna;j++)
+                    {
+                        Posicao origem = x.Posicao;
+                        Posicao destino = new Posicao(i,j);
+                        Peca pecaCapturada = ExecutaMovimento(origem, destino);
+                        bool testaXeque = EstaEmXeque(cor);
+                        DesfazMovimento(origem,destino);
+                        if(!testaXeque)
+                            return false;
+                    }
+                }
+            }  
+            return true;  
+        }
         private Peca Rei(Cor cor)
         {
             foreach(Peca x in EmJogo(cor))
@@ -127,8 +152,14 @@ namespace xadrez
                 Xeque = false;
             }
 
-            turno++;
-            MudaJogador();
+            if(TesteXequeMate(Adversaria(JogadorAtual)))
+                Terminada = true;
+
+            else
+            {       
+                turno++;
+                MudaJogador();
+            } 
         }
 
         public void ValidarPosicaoDeOrigem(Posicao origem)
