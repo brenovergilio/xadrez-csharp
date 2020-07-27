@@ -26,7 +26,7 @@ namespace xadrez
         private bool TesteTorreParaRoque(Posicao pos)
         {
             Peca p = Tab.PecaEspecifica(pos);
-            return p!=null && p is Torre && p.Cor = Cor && p.QntMovimentos == 0;
+            return p!=null && p is Torre && p.Cor == Cor && p.QntMovimentos == 0;
         }
 
         public override bool[,] MovimentosPossiveis()
@@ -111,7 +111,7 @@ namespace xadrez
                     Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna+2);
                     if(Tab.PecaEspecifica(p1) == null && Tab.PecaEspecifica(p2) == null)
                     {
-                        mat[Posicao.Linha. Posicao.Coluna + 2] = true;
+                        mat[Posicao.Linha, Posicao.Coluna + 2] = true;
                     }   
                 }
 
@@ -124,7 +124,7 @@ namespace xadrez
                     Posicao p3 = new Posicao(Posicao.Linha, Posicao.Coluna-3);
                     if(Tab.PecaEspecifica(p1) == null && Tab.PecaEspecifica(p2) == null && Tab.PecaEspecifica(p3) == null)
                     {
-                        mat[Posicao.Linha. Posicao.Coluna + 2] = true;
+                        mat[Posicao.Linha, Posicao.Coluna + 2] = true;
                     }   
                 }
             }

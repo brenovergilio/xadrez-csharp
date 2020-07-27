@@ -5,7 +5,7 @@ namespace xadrez
     public class Peao : Peca
     {
 
-        private PartidaDeXadrez partida;
+        private PartidaDeXadrez Partida;
         public Peao(Tabuleiro tab, Cor cor, PartidaDeXadrez partida) : base(tab,cor)
         {
             Partida = partida;
@@ -52,21 +52,21 @@ namespace xadrez
                     pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
                     if(Tab.PosicaoValida(pos) && Livre(pos) && QntMovimentos == 0)
                     {
-                        mat[pos.Linha,pos.Coluna] == true;
+                        mat[pos.Linha,pos.Coluna] = true;
                     }
                     
                     pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna -1);
 
                     if(Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                     {
-                        mat[pos.Linha,pos.Coluna] == true;
+                        mat[pos.Linha,pos.Coluna] = true;
                     }
 
                     pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna +1);
 
                     if(Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                     {
-                        mat[pos.Linha,pos.Coluna] == true;
+                        mat[pos.Linha,pos.Coluna] = true;
                     }
 
                     // #Jogada Especial: En Passant
@@ -74,13 +74,13 @@ namespace xadrez
                     if(Posicao.Linha==3)
                     {
                         Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
-                        if(Tab.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tab.PecaEspecifica(esquerda) == partida.PecaVulneravelEnPassant)
+                        if(Tab.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tab.PecaEspecifica(esquerda) == Partida.PecaVulneravelEnPassant)
                         {
                             mat[esquerda.Linha-1,esquerda.Coluna] = true;
                         }
 
-                        Posicao direia = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
-                        if(Tab.PosicaoValida(direita) && ExisteInimigo(direita) && Tab.PecaEspecifica(direita) == partida.PecaVulneravelEnPassant)
+                        Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                        if(Tab.PosicaoValida(direita) && ExisteInimigo(direita) && Tab.PecaEspecifica(direita) == Partida.PecaVulneravelEnPassant)
                         {
                             mat[direita.Linha-1,direita.Coluna] = true;
                         }
@@ -99,34 +99,34 @@ namespace xadrez
                     pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna);
                     if(Tab.PosicaoValida(pos) && Livre(pos) && QntMovimentos == 0)
                     {
-                        mat[pos.Linha,pos.Coluna] == true;
+                        mat[pos.Linha,pos.Coluna] = true;
                     }
                     
                     pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna -1);
 
                     if(Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                     {
-                        mat[pos.Linha,pos.Coluna] == true;
+                        mat[pos.Linha,pos.Coluna] = true;
                     }
 
                     pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna +1);
 
                     if(Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                     {
-                        mat[pos.Linha,pos.Coluna] == true;
+                        mat[pos.Linha,pos.Coluna] = true;
                     }   
                      // #Jogada Especial: En Passant
 
                     if(Posicao.Linha==4)
                     {
                         Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
-                        if(Tab.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tab.PecaEspecifica(esquerda) == partida.PecaVulneravelEnPassant)
+                        if(Tab.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tab.PecaEspecifica(esquerda) == Partida.PecaVulneravelEnPassant)
                         {
                             mat[esquerda.Linha+1,esquerda.Coluna] = true;
                         }
                         
-                        Posicao direia = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
-                        if(Tab.PosicaoValida(direita) && ExisteInimigo(direita) && Tab.PecaEspecifica(direita) == partida.PecaVulneravelEnPassant)
+                        Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                        if(Tab.PosicaoValida(direita) && ExisteInimigo(direita) && Tab.PecaEspecifica(direita) == Partida.PecaVulneravelEnPassant)
                         {
                             mat[direita.Linha+1,direita.Coluna] = true;
                         }

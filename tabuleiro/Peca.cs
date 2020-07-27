@@ -28,9 +28,9 @@ namespace tabuleiro
         {
             bool [,] mat = MovimentosPossiveis();
 
-            for(int i=0;i<mat.Linhas;i++)
+            for(int i=0;i<Tab.Linhas;i++)
             {
-                for(int j=0;j<mat.Colunas;j++)
+                for(int j=0;j<Tab.Colunas;j++)
                 {
                     if(mat[i,j])
                         return true;

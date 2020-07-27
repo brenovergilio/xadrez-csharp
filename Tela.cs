@@ -28,7 +28,7 @@ namespace C__and_.Net
             System.Console.WriteLine();
             System.Console.Write("Pretas: ");
             ConsoleColor aux = Console.ForegroundColor;
-            ConsoleColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             ImprimirConjuntos(partida.Capturadas(Cor.Preta));
             Console.ForegroundColor = aux;
             System.Console.WriteLine();
@@ -51,7 +51,7 @@ namespace C__and_.Net
                 System.Console.Write(8-i+" ");
                 for(int j=0;j<tab.Colunas;j++)
                 {
-                    ImprimirPeca(i,j);
+                    ImprimirPeca(tab.PecaEspecifica(i,j));
                 }
                 System.Console.WriteLine();
             }
@@ -73,7 +73,7 @@ namespace C__and_.Net
                     else
                         Console.BackgroundColor = fundoOriginal;
 
-                    ImprimirPeca(i,j);
+                    ImprimirPeca(tab.PecaEspecifica(i,j));
                     Console.BackgroundColor = fundoOriginal;
                 }
                 System.Console.WriteLine();

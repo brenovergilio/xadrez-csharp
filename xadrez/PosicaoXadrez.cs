@@ -1,3 +1,5 @@
+using tabuleiro;
+
 namespace xadrez
 {
     public class PosicaoXadrez
