@@ -236,6 +236,22 @@ namespace xadrez
                 DesfazMovimento(inicio,destino, pecaCapturada);
             }
 
+            Peca p = Tab.PecaEspecifica(destino);
+
+            // #Jogada Especial: Promoção
+
+            if(p is Peao)
+            {
+                if((p.Cor == Cor.Branca && destino.Linha == 0) || (p.Cor == Cor.Preta && destino.Linha == 7))
+                {
+                    p = Tab.RetirarPeca(destino);
+                    Pecas.Remove(p);
+                    Peca dama = new Dama(Tab,p.cor);
+                    Tab.ColocarPeca(dama, destino);
+                    Pecas.Add(dama);
+                }
+            }            
+
             if(EstaEmCheque(Adversaria(JogadorAtual)))
             {
                 Xeque = true;
@@ -254,8 +270,6 @@ namespace xadrez
                 turno++;
                 MudaJogador();
             } 
-
-            Peca p = Tab.PecaEspecifica(destino);
 
             // #Jogada Especial: En Passant
 
