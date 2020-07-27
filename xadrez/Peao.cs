@@ -44,13 +44,13 @@ namespace xadrez
             {   //acima 
                     pos.DefinirValores(Posicao.Linha-1,Posicao.Coluna);
 
-                    if(Tab.PosicaoValida(pos) && PodeMover(pos))
+                    if(Tab.PosicaoValida(pos) && PodeMover(pos) && !ExisteInimigo(pos))
                     {
                         mat[pos.Linha, pos.Coluna] = true;
                     }
 
                     pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
-                    if(Tab.PosicaoValida(pos) && Livre(pos) && QntMovimentos == 0)
+                    if(Tab.PosicaoValida(pos) && Livre(pos) && QntMovimentos == 0 && !ExisteInimigo(pos))
                     {
                         mat[pos.Linha,pos.Coluna] = true;
                     }
@@ -91,13 +91,13 @@ namespace xadrez
             {
                     pos.DefinirValores(Posicao.Linha+1,Posicao.Coluna);
 
-                    if(Tab.PosicaoValida(pos) && PodeMover(pos))
+                    if(Tab.PosicaoValida(pos) && PodeMover(pos) && !ExisteInimigo(pos))
                     {
                         mat[pos.Linha, pos.Coluna] = true;
                     }
 
                     pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna);
-                    if(Tab.PosicaoValida(pos) && Livre(pos) && QntMovimentos == 0)
+                    if(Tab.PosicaoValida(pos) && Livre(pos) && QntMovimentos == 0 && !ExisteInimigo(pos)) 
                     {
                         mat[pos.Linha,pos.Coluna] = true;
                     }
